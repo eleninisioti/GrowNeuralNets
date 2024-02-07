@@ -1,0 +1,20 @@
+ckpt_file: null
+ckpt_freq: 10
+seed: 241099
+wandb_project: gecco_2024
+env_config:
+  L1_penalty: 0.0
+  backend: positional
+  ctrl_cost_weight: 0.1
+  env_name: null
+  max_steps: 1000
+  size_penalty: 0.0
+trainer_config:
+  centered_rank: 0
+  eval_reps: 2
+  generations: 7000
+  log: 1
+  n_devices: 1
+  net_ckpt_path: /content/2023_04_lga_v7(1).pkl
+  popsize: 512
+  strategy: DES

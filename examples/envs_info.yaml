@@ -1,0 +1,33 @@
+Breakout-MinAtar:
+  input: 18
+  output: 1
+CartPole-v1:
+  input: 2
+  output: 4
+MountainCar-v0:
+  input: 2
+  output: 1
+MountainCarContinuous-v0:
+  input: 2
+  output: 1
+Pendulum-v1:
+  input: 3
+  output: 1
+ant:
+  input: 27
+  output: 8
+halfcheetah:
+  input: 17
+  output: 6
+hopper:
+  input: 11
+  output: 3
+reacher:
+  input: 11
+  output: 2
+inverted_pendulum:
+  input: 4
+  output: 1
+inverted_double_pendulum:
+  input: 8
+  output: 1
