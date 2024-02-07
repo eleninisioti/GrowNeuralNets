@@ -5,7 +5,7 @@ This is the code for our paper submission to Gecco '24.
 
 <div style="text-align:center;">
 
-![gecco2024.gif](..%2F..%2F..%2F..%2FLibrary%2FMobile%20Documents%2Fcom%7Eapple%7EKeynote%2FDocuments%2Fgecco2024.gif)
+![trajectories](visuals/gecco2024.gif)
 
 *Visualization the trajectories learned by our model (corresponding to the results presented in Figure 3 and Table 1 of our paper)*
 </div>
