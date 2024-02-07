@@ -135,4 +135,4 @@ dependencies:
       - wandb==0.16.1
       - werkzeug==3.0.1
       - zipp==3.17.0
-prefix: /home/eleni/anaconda3/envs/erwanNDP
+prefix: /home/eleni/anaconda3/envs/GrowNeuralNets

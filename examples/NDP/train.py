@@ -147,7 +147,7 @@ def train(env_name, inhibition, intrinsic, num_hidden_neurons, generations, stra
 
     # -----------------------------------------
     key = jr.PRNGKey(config["seed"])
-    for trial in range(2,n_trials+1):
+    for trial in range(n_trials):
         key, _ = jr.split(key)
         config["key"] = key
         config["trial_dir"] = project_dir + "/trial_" + str(trial)
@@ -157,26 +157,35 @@ def train(env_name, inhibition, intrinsic, num_hidden_neurons, generations, stra
 
         run_trial(config)
 
-def NDP_intrinsic():
-    os.environ["CUDA_VISIBLE_DEVICES"] = "3"
-    #train(env_name="ant", inhibition="none", intrinsic=True, num_hidden_neurons=64, strategy="DES", generations=5000)
-    #train(env_name="reacher", inhibition="none", intrinsic=True, num_hidden_neurons=64, strategy="DES", generations=7000)
+def NDP():
+    train(env_name="ant", inhibition="none", intrinsic=True, num_hidden_neurons=64, strategy="DES", generations=5000)
+    train(env_name="reacher", inhibition="none", intrinsic=True, num_hidden_neurons=64, strategy="DES", generations=7000)
     train(env_name="inverted_double_pendulum", inhibition="none", intrinsic=False, num_hidden_neurons=64, strategy="DES", generations=1000)
-    #train(env_name="halfcheetah", inhibition="none", intrinsic=True, num_hidden_neurons=64, strategy="DES", generations=10000)
+    train(env_name="halfcheetah", inhibition="none", intrinsic=True, num_hidden_neurons=64, strategy="DES", generations=10000)
 
-def NDP_halfcheetah():
-    os.environ["CUDA_VISIBLE_DEVICES"] = "3"
-    #train(env_name="ant", inhibition="none", intrinsic=False, num_hidden_neurons=64, strategy="DES", generations=1000)
-    #train(env_name="reacher", inhibition="none", intrinsic=False, num_hidden_neurons=64, strategy="DES",
-    #      generations=1000)
-    train(env_name="halfcheetah", inhibition="none", intrinsic=True, num_hidden_neurons=64, strategy="DES",
+def NDP_inhib():
+    train(env_name="ant", inhibition="hidden_and_mitosis", intrinsic=False, num_hidden_neurons=64, strategy="DES", generations=1000)
+    train(env_name="reacher", inhibition="hidden_and_mitosis", intrinsic=False, num_hidden_neurons=64, strategy="DES",
+          generations=1000)
+    train(env_name="halfcheetah", inhibition="hidden_and_mitosis", intrinsic=False, num_hidden_neurons=64, strategy="DES",
           generations=10000)
-    #train(env_name="halfcheetah", inhibition="none", intrinsic=False, num_hidden_neurons=64, strategy="DES",
-    #      generations=10000)
+    train(env_name="halfcheetah", inhibition="hidden_and_mitosis", intrinsic=False, num_hidden_neurons=64, strategy="DES",
+          generations=10000)
+
+def NDP_vanilla():
+    train(env_name="ant", inhibition="none", intrinsic=False, num_hidden_neurons=64, strategy="DES", generations=5000)
+    train(env_name="reacher", inhibition="none", intrinsic=False, num_hidden_neurons=64, strategy="DES", generations=7000)
+    train(env_name="inverted_double_pendulum", inhibition="none", intrinsic=False, num_hidden_neurons=64, strategy="DES", generations=1000)
+    train(env_name="halfcheetah", inhibition="none", intrinsic=False, num_hidden_neurons=64, strategy="DES", generations=10000)
+
 
 
 if __name__ == "__main__":
     n_trials = 3
-    NDP_halfcheetah()
+    NDP()
+    NDP_inhib()
+    NDP_vanilla()
+
+
 
     #NDP_noinhib()
