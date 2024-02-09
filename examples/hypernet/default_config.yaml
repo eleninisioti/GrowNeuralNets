@@ -13,7 +13,7 @@ trainer_config:
   centered_rank: 0
   eval_reps: 2
   generations: 4000
-  log: 1
+  log: 0
   n_devices: 1
   net_ckpt_path: /content/2023_04_lga_v7(1).pkl
   popsize: 512
